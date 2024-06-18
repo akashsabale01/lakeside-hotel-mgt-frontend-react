@@ -40,7 +40,7 @@ const RoomList = () => {
     }, [roomTypeFilter, priceFilter]);
 
     const handleBook = (room) => {
-        navigate('/book-room', { state: { room } });
+        navigate(`/book-room/${room.roomId}`);
     };
 
     return (

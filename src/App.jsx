@@ -91,7 +91,7 @@ function App() {
                         <Route path="/add-booking" element={<AddBookedRoom />} />
                         
                         {/* below - working components */}
-                        <Route path="/book-room" element={<BookRoom />} />
+                        <Route path="/book-room/:roomId" element={<BookRoom />} />
                         <Route path="/booked-room-list" element={<BookedRoomsList />} />
                         <Route path="/find-booking" element={<BookedRoomsList />} />
                     
