@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { addBookedRoom } from '../../services/RoomService';
+import { addBookedRoom } from '../../services/BookedRoomService';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const AddBookedRoomOld = () => {

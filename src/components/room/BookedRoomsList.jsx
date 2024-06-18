@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getAllBookedRooms } from '../../services/RoomService';
+import { getAllBookedRooms } from '../../services/BookedRoomService';
 
 const BookedRoomsList = () => {
     const [bookedRooms, setBookedRooms] = useState([]);

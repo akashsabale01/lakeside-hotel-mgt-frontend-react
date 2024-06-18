@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { addBookedRoom } from '../../services/RoomService';
+import { addBookedRoom } from '../../services/BookedRoomService';
+import { toast } from 'react-toastify';
 
 const BookRoom = () => {
     const location = useLocation();
@@ -23,16 +23,6 @@ const BookRoom = () => {
         setFormData({ ...formData, [name]: value });
     };
 
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault();
-    //     try {hy
-    //         await axios.post('https://localhost:7136/api/bookings', formData);
-    //         alert('Booking Successful!');
-    //         navigate('/');
-    //     } catch (error) {
-    //         console.error('Error booking room:', error);
-    //     }
-    // };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -40,10 +30,14 @@ const BookRoom = () => {
             const response = await addBookedRoom(room.roomId, formData);
             console.log(`Book with room id = ${room.roomId} booked succesfully with api response-> `, response);
 
-            alert(response); // Or handle the response as needed
+            toast.success(`Booked room with id = ${room.roomId} succesfully`);
+            navigate("/booked-room-list");
+            // alert(response); // Or handle the response as needed
 
         } catch (error) {
             console.error('Error adding booked room:', error);
+            navigate("/book-room");
+            toast.error("Error while booking the room");
         }
     };
 
@@ -61,11 +55,11 @@ const BookRoom = () => {
                     <input type="email" className="form-control" name="guestEmail" value={formData.guestEmail} onChange={handleChange} required />
                 </div>
                 <div className="form-group">
-                    <label>CheckIn Date</label>
+                    <label>Check-In Date</label>
                     <input type="date" className="form-control" name="checkInDate" value={formData.checkInDate} onChange={handleChange} required />
                 </div>
                 <div className="form-group">
-                    <label>CheckOut Date</label>
+                    <label>Check-Out Date</label>
                     <input type="date" className="form-control" name="checkOutDate" value={formData.checkOutDate} onChange={handleChange} required />
                 </div>
                 <div className="form-group">

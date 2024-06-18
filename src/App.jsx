@@ -14,6 +14,7 @@ import NavBar from './components/layout/Navbar';
 import { toast } from 'react-toastify';
 import Register from './components/auth/Register';
 import RoomList from './components/room/RoomList';
+import BookedRoomsList from './components/room/BookedRoomsList';
 
 
 function App() {
@@ -85,6 +86,7 @@ function App() {
                         <Route path="/add-booking" element={<AddBookedRoom />} />
                         <Route path="/find-booking" element={<h2>Find Booking Component</h2>} /> {/* Placeholder for find booking */}
                         <Route path="/book-room" element={<BookRoom />} />
+                        <Route path="/booked-room-list" element={<BookedRoomsList />} />
                     
                     </Routes>
 
