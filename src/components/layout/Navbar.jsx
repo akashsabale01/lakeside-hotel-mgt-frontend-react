@@ -38,9 +38,6 @@ const NavBar = ({ user, logout }) => {
             <Nav.Link as={NavLink} to="/find-booking">
               Find my booking
             </Nav.Link>
-            <Nav.Link as={NavLink} to="/add-booking" className='ms-2'>
-              Add Booking
-            </Nav.Link>
             <NavDropdown title="Account" id="account-dropdown" show={showAccount} onClick={handleAccountClick}>
               {isLoggedIn ? (
                 <NavDropdown.Item as="button" onClick={logout} className="btn btn-secondary">
