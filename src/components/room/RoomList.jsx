@@ -45,7 +45,7 @@ const RoomList = () => {
 
     return (
         <div className="container mt-5">
-            <h1 className="text-center mb-4">Welcome to Lake Side Hotel!</h1>
+            <h1 className="text-center mb-4">Welcome to Lake Side Hotel</h1>
             <nav className="nav justify-content-center mb-4">
                 <Link className="nav-link" to="/">Home</Link>
                 <Link className="nav-link" to="/add-room">Add Room</Link>
@@ -73,7 +73,6 @@ const RoomList = () => {
                                 <p className="card-text">{room.description}</p>
                                 <p className="card-text"><strong>Capacity:</strong> {room.capacity} Guests</p>
                                 <p className="card-text"><strong>Price:</strong> ₹{room.price}</p>
-                                <Link to={`/room-details/${room.roomId}`} className="btn btn-primary me-2">View</Link>
                                 <button className="btn btn-warning" onClick={() => handleBook(room)}>Book</button>
                             </div>
                         </div>
