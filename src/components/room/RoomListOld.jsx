@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { getAllRooms } from '../../services/RoomService';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const RoomList = () => {
+const RoomListOld = () => {
     const [rooms, setRooms] = useState([]);
     const [filteredRooms, setFilteredRooms] = useState([]);
     const [roomTypeFilter, setRoomTypeFilter] = useState('');
@@ -13,20 +12,18 @@ const RoomList = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
+        const fetchRooms = async () => {
+            try {
+                const response = await axios.get('https://localhost:7136/api/room');
+                setRooms(response.data);
+                setFilteredRooms(response.data);
+            } catch (error) {
+                console.error('Error fetching rooms:', error);
+            }
+        };
+
         fetchRooms();
     }, []);
-
-    const fetchRooms = async () => {
-        try {
-            //const response = await axios.get('https://localhost:7136/api/room');
-            const response = await getAllRooms();
-            setRooms(response);
-            setFilteredRooms(response);
-        } catch (error) {
-            console.error('Error fetching rooms:', error);
-        }
-    };
-
 
     useEffect(() => {
         let filtered = rooms;
@@ -87,4 +84,4 @@ const RoomList = () => {
     );
 };
 
-export default RoomList;
+export default RoomListOld;

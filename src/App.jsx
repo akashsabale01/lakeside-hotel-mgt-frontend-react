@@ -1,7 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import AddRoom from './components/room/AddRoom';
 import EditRoom from './components/room/EditRoom';
-import RoomList from './components/room/RoomList';
 import Home from './components/homepage/Home';
 import Footer from './components/layout/Footer';
 import Admin from './components/admin/Admin';
@@ -14,6 +13,7 @@ import NavBar from './components/layout/Navbar';
 
 import { toast } from 'react-toastify';
 import Register from './components/auth/Register';
+import RoomList from './components/room/RoomList';
 
 
 function App() {

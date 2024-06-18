@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
-import './AddRoom.css'; // Assuming you have a separate CSS file for styles
+import { postRoom } from '../../services/RoomService'; 
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './AddRoom.css';
 
 const AddRoom = () => {
     const [name, setName] = useState('');
@@ -16,23 +17,19 @@ const AddRoom = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const formData = new FormData();
-        formData.append('name', name);
-        formData.append('description', description);
-        formData.append('capacity', capacity);
-        formData.append('price', price);
-        formData.append('imageFile', imageFile);
+        const roomData = {
+            name,
+            description,
+            capacity,
+            price,
+            imageFile
+        };
 
         try {
-            const response = await axios.post('https://localhost:7136/api/room', formData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data',
-                },
-            });
-            const { data } = response;
-            setAddedRoom(data);
+            const response = await postRoom(roomData);
+            setAddedRoom(response);
             setMessage('Room added successfully!');
-            // Reset form if needed
+            // Reset form
             setName('');
             setDescription('');
             setCapacity(1);
@@ -122,7 +119,9 @@ const AddRoom = () => {
                                     <p><strong>Description:</strong> {addedRoom.description}</p>
                                     <p><strong>Capacity:</strong> {addedRoom.capacity}</p>
                                     <p><strong>Price:</strong> {addedRoom.price}</p>
-                                    <img src={addedRoom.imageUrl} alt="Room" className="img-fluid mt-3" />
+                                    {addedRoom.imageUrl && (
+                                        <img src={addedRoom.imageUrl} alt="Room" className="img-fluid mt-3" />
+                                    )}
                                 </div>
                             </div>
                         </div>
