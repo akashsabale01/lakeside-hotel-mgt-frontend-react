@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import { postRoom } from '../../services/RoomService'; 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './AddRoom.css';
@@ -118,9 +117,9 @@ const AddRoom = () => {
                                     <p><strong>Name:</strong> {addedRoom.name}</p>
                                     <p><strong>Description:</strong> {addedRoom.description}</p>
                                     <p><strong>Capacity:</strong> {addedRoom.capacity}</p>
-                                    <p><strong>Price:</strong> {addedRoom.price}</p>
-                                    {addedRoom.imageUrl && (
-                                        <img src={addedRoom.imageUrl} alt="Room" className="img-fluid mt-3" />
+                                    <p><strong>Price:</strong> ₹{addedRoom.price}</p>
+                                    {addedRoom.image && (
+                                        <img src={`data:image/jpeg;base64,${addedRoom.image}`} alt="Room" className="img-fluid mt-3" />
                                     )}
                                 </div>
                             </div>
