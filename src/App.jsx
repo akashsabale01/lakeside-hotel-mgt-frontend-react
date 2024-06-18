@@ -75,18 +75,25 @@ function App() {
                     <NavBar  user={user} logout={logout} />
 
                     <Routes>
+                        <Route path="/" element={<Home user={user} />} />
+                        
                         <Route path="/login" element={<Login login={login} />} />
                         <Route path="/register" element={<Register register={register}/>} />
-                        <Route path="/" element={<Home user={user} />} />
+                        
+                        <Route path="/admin" element={<Admin />} />
+                        
                         <Route path="/add-room" element={<AddRoom />} />
                         <Route path="/edit-room" element={<EditRoom />} />
                         <Route path="/edit-room/:id" element={<EditRoom />} />
                         <Route path="/room-list" element={<RoomList />} />
-                        <Route path="/admin" element={<Admin />} />
+                        
+                        
                         <Route path="/add-booking" element={<AddBookedRoom />} />
-                        <Route path="/find-booking" element={<h2>Find Booking Component</h2>} /> {/* Placeholder for find booking */}
+                        
+                        {/* below - working components */}
                         <Route path="/book-room" element={<BookRoom />} />
                         <Route path="/booked-room-list" element={<BookedRoomsList />} />
+                        <Route path="/find-booking" element={<BookedRoomsList />} />
                     
                     </Routes>
 
