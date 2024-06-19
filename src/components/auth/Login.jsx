@@ -29,7 +29,8 @@ const Login = ({ login }) => {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            height: "70vh"
+            height: "70vh",
+            marginTop:"2rem"
         }}>
             <Card style={{ width: '25rem', padding: "20px" }}>
                 <h2 className='text-center'>Login</h2>

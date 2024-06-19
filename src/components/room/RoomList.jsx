@@ -45,25 +45,24 @@ const RoomList = () => {
 
     return (
         <div className="container mt-5">
-            <h1 className="text-center mb-4">Welcome to Lake Side Hotel</h1>
-            <nav className="nav justify-content-center mb-4">
-                <Link className="nav-link" to="/">Home</Link>
-                <Link className="nav-link" to="/add-room">Add Room</Link>
-            </nav>
             <div className="row mb-4">
+                    <h3 className='text-muted mb-3'>Filter Rooms</h3>
                 <div className="col-md-4">
+                    <label className='text-muted mb-1'>Filter By Type</label>
                     <select className="form-control" value={roomTypeFilter} onChange={(e) => setRoomTypeFilter(e.target.value)}>
-                        <option value="">Filter by Type</option>
+                        <option value="">All Rooms</option>
                         <option value="single room">Single Room</option>
                         <option value="double room">Double Room</option>
                         {/* Add other room types as needed */}
                     </select>
                 </div>
                 <div className="col-md-4">
-                    <input type="number" className="form-control" placeholder="Max Price" value={priceFilter} onChange={(e) => setPriceFilter(e.target.value)} />
+                    <label className='text-muted mb-1'>Filter By Max Price</label>
+                    <input type="number" className="form-control" placeholder="Enter Max Price" value={priceFilter} onChange={(e) => setPriceFilter(e.target.value)} />
                 </div>
             </div>
             <div className="row">
+            <h3 className='text-muted mb-3'>Available Rooms</h3>
                 {filteredRooms.map(room => (
                     <div key={room.roomId} className="col-md-4 mb-4">
                         <div className="card h-100">

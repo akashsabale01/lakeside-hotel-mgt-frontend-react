@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { getAllBookedRooms } from "../../services/BookedRoomService";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const BookedRoomsList = () => {
   const [bookedRooms, setBookedRooms] = useState([]);
@@ -18,44 +18,45 @@ const BookedRoomsList = () => {
   return (
     <div className="container mt-5">
       <h1 className="mb-4">Booked Rooms</h1>
-      <table className="table table-bordered table-hover">
-        <thead className="table-primary">
-          <tr>
-            <th>Booking ID</th>
-            <th>Check-in Date</th>
-            <th>Check-out Date</th>
-            <th>Guest Full Name</th>
-            <th>Guest Email</th>
-            <th>Number of Adults</th>
-            <th>Number of Children</th>
-            <th>Total Number of Guests</th>
-            <th>Booking Confirmation Code</th>
-            <th>Room ID</th>
-          </tr>
-        </thead>
-        <tbody>
-          {bookedRooms.map((room) => (
-            <tr key={room.bookingId}>
-              <td>{room.bookingId}</td>
-              <td>{new Date(room.checkInDate).toLocaleDateString()}</td>
-              <td>{new Date(room.checkOutDate).toLocaleDateString()}</td>
-              <td>{room.guestFullName}</td>
-              <td>{room.guestEmail}</td>
-              <td>{room.numOfAdults}</td>
-              <td>{room.numOfChildren}</td>
-              <td>{room.totalNumOfGuest}</td>
-              <td>{room.bookingConfirmationCode}</td>
-              <td>{room.roomId}</td>
+      <div className="table-responsive">
+        <table className="table table-bordered table-hover table-responsive">
+          <thead className="table-primary">
+            <tr>
+              <th>Booking ID</th>
+              <th>Check-in Date</th>
+              <th>Check-out Date</th>
+              <th>Guest Full Name</th>
+              <th>Guest Email</th>
+              <th>Number of Adults</th>
+              <th>Number of Children</th>
+              <th>Total Number of Guests</th>
+              <th>Booking Confirmation Code</th>
+              <th>Room ID</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {bookedRooms.map((room) => (
+              <tr key={room.bookingId}>
+                <td>{room.bookingId}</td>
+                <td>{new Date(room.checkInDate).toLocaleDateString()}</td>
+                <td>{new Date(room.checkOutDate).toLocaleDateString()}</td>
+                <td>{room.guestFullName}</td>
+                <td>{room.guestEmail}</td>
+                <td>{room.numOfAdults}</td>
+                <td>{room.numOfChildren}</td>
+                <td>{room.totalNumOfGuest}</td>
+                <td>{room.bookingConfirmationCode}</td>
+                <td>{room.roomId}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };
 
 export default BookedRoomsList;
-
 
 /*
     [

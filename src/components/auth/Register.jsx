@@ -71,7 +71,7 @@ const Register = ({ register }) => {
                         Register
                     </Button>
                 </Form>
-                <p className='mt-3'>Already have an account yet? <Link to={"/login"}>Login</Link> </p>
+                <p className='mt-3'>Already have an account? <Link to={"/login"}>Login</Link> </p>
             </Card>
         </div>
     )
